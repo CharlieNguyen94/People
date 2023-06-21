@@ -6,7 +6,7 @@ struct PeopleView: View {
 	@State private var users = [User]()
 
     var body: some View {
-		NavigationView {
+		NavigationStack {
 			ZStack {
 				background
 				ScrollView {

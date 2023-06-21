@@ -6,7 +6,7 @@ struct PersonItemView: View {
 
 	var body: some View {
 		VStack(spacing: .zero) {
-			AsyncImage(url: .init(string: user.avatar)) { image in
+			AsyncImage(url: URL(string: user.avatar)) { image in
 				image
 					.resizable()
 					.aspectRatio(contentMode: .fill)

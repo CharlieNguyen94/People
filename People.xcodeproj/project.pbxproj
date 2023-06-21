@@ -21,6 +21,7 @@
 		95874A782A43A25900135B2D /* PeopleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95874A772A43A25900135B2D /* PeopleView.swift */; };
 		95874A7A2A43A93B00135B2D /* PersonItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95874A792A43A93B00135B2D /* PersonItemView.swift */; };
 		95874A7D2A43AA1C00135B2D /* PillView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95874A7C2A43AA1C00135B2D /* PillView.swift */; };
+		95874A7F2A43AE9300135B2D /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95874A7E2A43AE9200135B2D /* DetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		95874A772A43A25900135B2D /* PeopleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleView.swift; sourceTree = "<group>"; };
 		95874A792A43A93B00135B2D /* PersonItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonItemView.swift; sourceTree = "<group>"; };
 		95874A7C2A43AA1C00135B2D /* PillView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PillView.swift; sourceTree = "<group>"; };
+		95874A7E2A43AE9200135B2D /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -207,6 +209,7 @@
 		95874A642A43688800135B2D /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				95874A7E2A43AE9200135B2D /* DetailView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -336,6 +339,7 @@
 				95874A552A4364FF00135B2D /* Symbols.swift in Sources */,
 				95874A782A43A25900135B2D /* PeopleView.swift in Sources */,
 				95874A572A4366C300135B2D /* Theme.swift in Sources */,
+				95874A7F2A43AE9300135B2D /* DetailView.swift in Sources */,
 				95874A6E2A43839A00135B2D /* UserDetailResponse.swift in Sources */,
 				95874A462A43632E00135B2D /* PeopleApp.swift in Sources */,
 				95874A702A43840700135B2D /* UserResponse.swift in Sources */,

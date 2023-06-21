@@ -6,4 +6,3 @@ enum Theme {
 	static let text = Color("text")
 	static let pill = Color("pill")
 }
-

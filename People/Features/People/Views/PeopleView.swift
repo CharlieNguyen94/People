@@ -2,9 +2,8 @@ import SwiftUI
 
 struct PeopleView: View {
 
+	@StateObject var viewModel = PeopleViewModel()
 	private let columns = Array(repeating: GridItem(.flexible()), count: 2)
-	@State private var users = [User]()
-	@State private var showCreate = false
 
     var body: some View {
 		NavigationView {
@@ -12,7 +11,7 @@ struct PeopleView: View {
 				background
 				ScrollView {
 					LazyVGrid(columns: columns, spacing: 16) {
-						ForEach(users, id: \.id) { user in
+						ForEach(viewModel.users, id: \.id) { user in
 							NavigationLink {
 								DetailView()
 							} label: {
@@ -30,18 +29,9 @@ struct PeopleView: View {
 				}
 			}
 			.onAppear {
-				NetworkingManager.shared.request(
-					"https://reqres.in/api/users",
-					type: UsersResponse.self) { result in
-						switch result {
-						case .success(let response):
-							users = response.data
-						case .failure(let error):
-							print(error)
-						}
-				}
+				viewModel.fetchUsers()
 			}
-			.sheet(isPresented: $showCreate) {
+			.sheet(isPresented: $viewModel.showCreate) {
 				CreateView()
 			}
 		}
@@ -63,9 +53,10 @@ private extension PeopleView {
 
 	var create: some View {
 		Button {
-			showCreate.toggle()
+			viewModel.showCreate.toggle()
 		} label: {
-			Symbols.plus
+			Symbols
+				.plus
 				.font(.system(.headline, design: .rounded))
 				.bold()
 		}

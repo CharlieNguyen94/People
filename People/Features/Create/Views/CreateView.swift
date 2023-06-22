@@ -2,13 +2,14 @@ import SwiftUI
 
 struct CreateView: View {
 	@Environment(\.dismiss) private var dismiss
+	@StateObject private var viewModel = CreateViewModel()
 
     var body: some View {
 		NavigationView {
 			Form {
-				textfield("First name", text: .constant(""))
-				textfield("Last name", text: .constant(""))
-				textfield("Job", text: .constant(""))
+				textfield("First name", text: $viewModel.person.firstName)
+				textfield("Last name", text: $viewModel.person.lastName)
+				textfield("Job", text: $viewModel.person.job)
 
 				Section {
 					submit
@@ -18,6 +19,11 @@ struct CreateView: View {
 			.toolbar {
 				ToolbarItem(placement: .primaryAction) {
 					done
+				}
+			}
+			.onChange(of: viewModel.state) { formState in
+				if formState == .successful {
+					dismiss()
 				}
 			}
 		}
@@ -40,7 +46,7 @@ private extension CreateView {
 
 	var submit: some View {
 		Button("Submit") {
-
+			viewModel.create()
 		}
 	}
 

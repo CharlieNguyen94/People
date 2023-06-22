@@ -1,6 +1,7 @@
 import Foundation
 
 final class PeopleViewModel: ObservableObject {
+
 	@Published private(set) var users = [User]()
 	@Published var showCreate = false
 

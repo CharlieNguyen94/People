@@ -2,7 +2,7 @@ import SwiftUI
 
 struct PeopleView: View {
 
-	@StateObject var viewModel = PeopleViewModel()
+	@StateObject private var viewModel = PeopleViewModel()
 	private let columns = Array(repeating: GridItem(.flexible()), count: 2)
 
     var body: some View {

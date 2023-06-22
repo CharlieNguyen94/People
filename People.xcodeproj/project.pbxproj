@@ -29,6 +29,7 @@
 		959697A42A443D8700B23EB3 /* NewPerson.swift in Sources */ = {isa = PBXBuildFile; fileRef = 959697A32A443D8700B23EB3 /* NewPerson.swift */; };
 		959697A62A443DFF00B23EB3 /* CreateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 959697A52A443DFF00B23EB3 /* CreateViewModel.swift */; };
 		959697D92A446C3A00B23EB3 /* CheckmarkPopoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 959697D82A446C3A00B23EB3 /* CheckmarkPopoverView.swift */; };
+		959697DC2A44737F00B23EB3 /* CreateValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 959697DB2A44737F00B23EB3 /* CreateValidator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +57,7 @@
 		959697A32A443D8700B23EB3 /* NewPerson.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPerson.swift; sourceTree = "<group>"; };
 		959697A52A443DFF00B23EB3 /* CreateViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateViewModel.swift; sourceTree = "<group>"; };
 		959697D82A446C3A00B23EB3 /* CheckmarkPopoverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckmarkPopoverView.swift; sourceTree = "<group>"; };
+		959697DB2A44737F00B23EB3 /* CreateValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateValidator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -152,6 +154,7 @@
 		95874A5B2A43682300135B2D /* Create */ = {
 			isa = PBXGroup;
 			children = (
+				959697DA2A44736E00B23EB3 /* Validator */,
 				95874A622A43687D00135B2D /* Model */,
 				95874A632A43688300135B2D /* ViewModel */,
 				95874A612A43687800135B2D /* Views */,
@@ -291,6 +294,14 @@
 			path = API;
 			sourceTree = "<group>";
 		};
+		959697DA2A44736E00B23EB3 /* Validator */ = {
+			isa = PBXGroup;
+			children = (
+				959697DB2A44737F00B23EB3 /* CreateValidator.swift */,
+			);
+			path = Validator;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -379,6 +390,7 @@
 				959697A42A443D8700B23EB3 /* NewPerson.swift in Sources */,
 				959697A02A44323C00B23EB3 /* PeopleViewModel.swift in Sources */,
 				9596979B2A4425DC00B23EB3 /* CreateView.swift in Sources */,
+				959697DC2A44737F00B23EB3 /* CreateValidator.swift in Sources */,
 				959697A22A4436AA00B23EB3 /* DetailViewModel.swift in Sources */,
 				95874A732A43848600135B2D /* Models.swift in Sources */,
 			);

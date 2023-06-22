@@ -3,13 +3,27 @@ import SwiftUI
 struct CreateView: View {
 	@Environment(\.dismiss) private var dismiss
 	@StateObject var viewModel: CreateViewModel
+	@FocusState private var focusedField: Field?
 
     var body: some View {
 		NavigationView {
 			Form {
-				textfield("First name", text: $viewModel.person.firstName)
-				textfield("Last name", text: $viewModel.person.lastName)
-				textfield("Job", text: $viewModel.person.job)
+				Section {
+					textfield("First name", text: $viewModel.person.firstName)
+						.focused($focusedField, equals: .firstName)
+
+					textfield("Last name", text: $viewModel.person.lastName)
+						.focused($focusedField, equals: .lastName)
+
+					textfield("Job", text: $viewModel.person.job)
+						.focused($focusedField, equals: .job)
+				} footer: {
+					if case .validation(let error) = viewModel.error,
+					   let errorDescription = error.errorDescription {
+						Text(errorDescription)
+							.foregroundStyle(.red)
+					}
+				}
 
 				Section {
 					submit
@@ -41,6 +55,14 @@ struct CreateView: View {
     }
 }
 
+extension CreateView {
+	enum Field: Hashable {
+		case firstName
+		case lastName
+		case job
+	}
+}
+
 struct CreateView_Previews: PreviewProvider {
     static var previews: some View {
 		CreateView(viewModel: .init(successfulAction: {}))
@@ -58,6 +80,7 @@ private extension CreateView {
 
 	var submit: some View {
 		Button("Submit") {
+			focusedField = nil
 			viewModel.create()
 		}
 	}

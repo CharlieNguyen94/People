@@ -3,9 +3,11 @@ import Foundation
 final class CreateViewModel: ObservableObject {
 
 	@Published private(set) var state: SubmissionState?
-	@Published private(set) var error: NetworkingManager.NetworkingError?
+	@Published private(set) var error: FormError?
 	@Published var hasError = false
 	@Published var person = NewPerson()
+
+	private let validator = CreateValidator()
 
 	let successfulAction: () -> Void
 
@@ -18,30 +20,42 @@ final class CreateViewModel: ObservableObject {
 	}
 
 	func create() {
-		state = .submitting
+		do {
+			try validator.validate(person)
 
-		let encoder = JSONEncoder()
-		encoder.keyEncodingStrategy = .convertToSnakeCase
-		let data = try? encoder.encode(person)
+			state = .submitting
 
-		NetworkingManager
-			.shared
-			.request(
-				methodType: .POST(data: data),
-				"https://reqres.in/api/users") { [weak self] result in
-					guard let self else { return }
+			let encoder = JSONEncoder()
+			encoder.keyEncodingStrategy = .convertToSnakeCase
+			let data = try? encoder.encode(person)
 
-					DispatchQueue.main.async {
-						switch result {
-						case .success:
-							self.state = .successful
-						case .failure(let error):
-							self.state = .unsuccessful
-							self.hasError = true
-							self.error = error as? NetworkingManager.NetworkingError
+			NetworkingManager
+				.shared
+				.request(
+					methodType: .POST(data: data),
+					"https://reqres.in/api/users") { [weak self] result in
+						guard let self else { return }
+
+						DispatchQueue.main.async {
+							switch result {
+							case .success:
+								self.state = .successful
+							case .failure(let error):
+								self.state = .unsuccessful
+								self.hasError = true
+								if let networkingError = error as? NetworkingManager.NetworkingError {
+									self.error = .networking(error: networkingError)
+								}
+							}
 						}
 					}
-				}
+
+		} catch {
+			self.hasError = true
+			if let validationError = error as? CreateValidator.CreateValidatorError {
+				self.error = .validation(error: validationError)
+			}
+		}
 	}
 }
 
@@ -50,5 +64,22 @@ extension CreateViewModel {
 		case unsuccessful
 		case submitting
 		case successful
+	}
+}
+
+extension CreateViewModel {
+	enum FormError: LocalizedError {
+		case networking(error: LocalizedError)
+		case validation(error: LocalizedError)
+	}
+}
+
+extension CreateViewModel.FormError {
+
+	var errorDescription: String? {
+		switch self {
+		case .networking(let error), .validation(error: let error):
+			return error.errorDescription
+		}
 	}
 }

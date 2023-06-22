@@ -38,6 +38,7 @@ struct PeopleView: View {
 			}
 			.sheet(isPresented: $viewModel.showCreate) {
 				CreateView(viewModel: .init(successfulAction: {
+					haptic(.success)
 					withAnimation(.spring().delay(0.25)) {
 						viewModel.shouldShowSuccess.toggle()
 					}

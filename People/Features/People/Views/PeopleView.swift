@@ -9,7 +9,7 @@ struct PeopleView: View {
 		NavigationStack {
 			ZStack {
 				background
-				if  viewModel.isLoading {
+				if viewModel.isLoading {
 					ProgressView()
 				} else {
 					ScrollView {
@@ -17,6 +17,11 @@ struct PeopleView: View {
 							ForEach(viewModel.users, id: \.id) { user in
 								NavigationLink(value: user.id) {
 									PersonItemView(user: user)
+										.task {
+											if viewModel.hasReachedEnd(of: user) && !viewModel.isFetching {
+												await viewModel.fetchNextSetOfUsers()
+											}
+										}
 								}
 							}
 						}
@@ -25,6 +30,11 @@ struct PeopleView: View {
 					.refreshable {
 						Task {
 							await viewModel.fetchUsers()
+						}
+					}
+					.overlay(alignment: .bottom) {
+						if viewModel.isFetching {
+							ProgressView()
 						}
 					}
 				}

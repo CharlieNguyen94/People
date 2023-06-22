@@ -4,7 +4,7 @@ final class DetailViewModel: ObservableObject {
 
 	@Published private(set) var userDetails: UserDetailResponse?
 	@Published private(set) var error: NetworkingManager.NetworkingError?
-	@Published private(set) var isLoading: Bool = false
+	@Published private(set) var isLoading = false
 	@Published var hasError = false
 	let userId: Int
 

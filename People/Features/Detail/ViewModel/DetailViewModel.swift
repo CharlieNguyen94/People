@@ -4,6 +4,7 @@ final class DetailViewModel: ObservableObject {
 
 	@Published private(set) var userDetails: UserDetailResponse?
 	@Published private(set) var error: NetworkingManager.NetworkingError?
+	@Published private(set) var isLoading: Bool = false
 	@Published var hasError = false
 	let userId: Int
 
@@ -12,6 +13,7 @@ final class DetailViewModel: ObservableObject {
 	}
 
 	func fetchDetails() {
+		isLoading = true
 		NetworkingManager.shared.request(
 			"https://reqres.in/api/users/\(userId)",
 			type: UserDetailResponse.self
@@ -19,6 +21,7 @@ final class DetailViewModel: ObservableObject {
 			guard let self else { return }
 
 			DispatchQueue.main.async {
+				defer { self.isLoading = false }
 				switch result {
 				case .success(let response):
 					self.userDetails = response

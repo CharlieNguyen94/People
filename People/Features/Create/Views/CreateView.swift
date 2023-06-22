@@ -15,6 +15,12 @@ struct CreateView: View {
 					submit
 				}
 			}
+			.disabled(viewModel.shouldDisable)
+			.overlay {
+				if viewModel.state == .submitting {
+					ProgressView()
+				}
+			}
 			.navigationTitle("Create")
 			.toolbar {
 				ToolbarItem(placement: .primaryAction) {
@@ -46,6 +52,7 @@ private extension CreateView {
 		Button("Done") {
 			dismiss()
 		}
+		.disabled(viewModel.shouldDisable)
 	}
 
 	var submit: some View {

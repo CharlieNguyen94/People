@@ -9,15 +9,19 @@ struct PeopleView: View {
 		NavigationStack {
 			ZStack {
 				background
-				ScrollView {
-					LazyVGrid(columns: columns, spacing: 16) {
-						ForEach(viewModel.users, id: \.id) { user in
-							NavigationLink(value: user.id) {
-								PersonItemView(user: user)
+				if  viewModel.isLoading {
+					ProgressView()
+				} else {
+					ScrollView {
+						LazyVGrid(columns: columns, spacing: 16) {
+							ForEach(viewModel.users, id: \.id) { user in
+								NavigationLink(value: user.id) {
+									PersonItemView(user: user)
+								}
 							}
 						}
+						.padding()
 					}
-					.padding()
 				}
 			}
 			.navigationDestination(for: Int.self, destination: { userId in
@@ -69,5 +73,6 @@ private extension PeopleView {
 				.font(.system(.headline, design: .rounded))
 				.bold()
 		}
+		.disabled(viewModel.isLoading)
 	}
 }

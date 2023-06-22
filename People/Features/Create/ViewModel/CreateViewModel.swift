@@ -2,8 +2,10 @@ import Foundation
 
 final class CreateViewModel: ObservableObject {
 
-	@Published var person = NewPerson()
 	@Published private(set) var state: SubmissionState?
+	@Published private(set) var error: NetworkingManager.NetworkingError?
+	@Published var hasError = false
+	@Published var person = NewPerson()
 
 	func create() {
 
@@ -16,13 +18,16 @@ final class CreateViewModel: ObservableObject {
 			.request(
 				methodType: .POST(data: data),
 				"https://reqres.in/api/users") { [weak self] result in
+					guard let self else { return }
 
 					DispatchQueue.main.async {
 						switch result {
 						case .success:
-							self?.state = .successful
+							self.state = .successful
 						case .failure(let error):
-							self?.state = .unsuccessful
+							self.state = .unsuccessful
+							self.hasError = true
+							self.error = error as? NetworkingManager.NetworkingError
 						}
 					}
 				}

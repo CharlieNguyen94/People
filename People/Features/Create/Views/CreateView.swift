@@ -26,6 +26,10 @@ struct CreateView: View {
 					dismiss()
 				}
 			}
+			.alert(
+				isPresented: $viewModel.hasError,
+				error: viewModel.error
+			) {}
 		}
     }
 }

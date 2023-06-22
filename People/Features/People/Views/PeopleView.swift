@@ -35,6 +35,14 @@ struct PeopleView: View {
 			.sheet(isPresented: $viewModel.showCreate) {
 				CreateView()
 			}
+			.alert(
+				isPresented: $viewModel.hasError,
+				error: viewModel.error
+			) {
+				Button("Retry") {
+					viewModel.fetchUsers()
+				}
+			}
 		}
     }
 }

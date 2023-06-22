@@ -28,6 +28,10 @@ struct DetailView: View {
 		.onAppear {
 			viewModel.fetchDetails()
 		}
+		.alert(
+			isPresented: $viewModel.hasError,
+			error: viewModel.error
+		) {}
     }
 }
 

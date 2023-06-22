@@ -37,7 +37,24 @@ struct PeopleView: View {
 				viewModel.fetchUsers()
 			}
 			.sheet(isPresented: $viewModel.showCreate) {
-				CreateView()
+				CreateView(viewModel: .init(successfulAction: {
+					withAnimation(.spring().delay(0.25)) {
+						viewModel.shouldShowSuccess.toggle()
+					}
+				}))
+			}
+			.overlay {
+				if viewModel.shouldShowSuccess {
+					CheckmarkPopoverView()
+						.transition(.scale.combined(with: .opacity))
+						.onAppear {
+							DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+								withAnimation(.spring()) {
+									viewModel.shouldShowSuccess.toggle()
+								}
+							}
+						}
+				}
 			}
 			.alert(
 				isPresented: $viewModel.hasError,

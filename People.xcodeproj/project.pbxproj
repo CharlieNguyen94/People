@@ -28,6 +28,7 @@
 		959697A22A4436AA00B23EB3 /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 959697A12A4436AA00B23EB3 /* DetailViewModel.swift */; };
 		959697A42A443D8700B23EB3 /* NewPerson.swift in Sources */ = {isa = PBXBuildFile; fileRef = 959697A32A443D8700B23EB3 /* NewPerson.swift */; };
 		959697A62A443DFF00B23EB3 /* CreateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 959697A52A443DFF00B23EB3 /* CreateViewModel.swift */; };
+		959697D92A446C3A00B23EB3 /* CheckmarkPopoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 959697D82A446C3A00B23EB3 /* CheckmarkPopoverView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +55,7 @@
 		959697A12A4436AA00B23EB3 /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
 		959697A32A443D8700B23EB3 /* NewPerson.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPerson.swift; sourceTree = "<group>"; };
 		959697A52A443DFF00B23EB3 /* CreateViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateViewModel.swift; sourceTree = "<group>"; };
+		959697D82A446C3A00B23EB3 /* CheckmarkPopoverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckmarkPopoverView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -276,6 +278,7 @@
 			isa = PBXGroup;
 			children = (
 				95874A7C2A43AA1C00135B2D /* PillView.swift */,
+				959697D82A446C3A00B23EB3 /* CheckmarkPopoverView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -360,6 +363,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				959697D92A446C3A00B23EB3 /* CheckmarkPopoverView.swift in Sources */,
 				95874A762A4384D000135B2D /* StaticJSONMapper.swift in Sources */,
 				95874A7D2A43AA1C00135B2D /* PillView.swift in Sources */,
 				95874A552A4364FF00135B2D /* Symbols.swift in Sources */,

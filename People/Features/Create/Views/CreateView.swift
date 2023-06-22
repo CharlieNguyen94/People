@@ -2,7 +2,7 @@ import SwiftUI
 
 struct CreateView: View {
 	@Environment(\.dismiss) private var dismiss
-	@StateObject private var viewModel = CreateViewModel()
+	@StateObject var viewModel: CreateViewModel
 
     var body: some View {
 		NavigationView {
@@ -30,6 +30,7 @@ struct CreateView: View {
 			.onChange(of: viewModel.state) { formState in
 				if formState == .successful {
 					dismiss()
+					viewModel.successfulAction()
 				}
 			}
 			.alert(
@@ -42,7 +43,7 @@ struct CreateView: View {
 
 struct CreateView_Previews: PreviewProvider {
     static var previews: some View {
-		CreateView()
+		CreateView(viewModel: .init(successfulAction: {}))
     }
 }
 

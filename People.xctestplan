@@ -1,0 +1,29 @@
+{
+  "configurations" : [
+    {
+      "id" : "8856FCB9-95F4-45CC-81CE-1B7DA5F19E9F",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "targetForVariableExpansion" : {
+      "containerPath" : "container:People.xcodeproj",
+      "identifier" : "95874A412A43632E00135B2D",
+      "name" : "People"
+    }
+  },
+  "testTargets" : [
+    {
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:People.xcodeproj",
+        "identifier" : "955C6C5D2A44BEC000432260",
+        "name" : "PeopleTests"
+      }
+    }
+  ],
+  "version" : 1
+}

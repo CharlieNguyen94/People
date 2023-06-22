@@ -2,7 +2,7 @@ import SwiftUI
 
 struct DetailView: View {
 
-	@State private var userInfo: UserDetailResponse?
+	@StateObject var viewModel: DetailViewModel
 
     var body: some View {
 		ZStack {
@@ -26,19 +26,21 @@ struct DetailView: View {
 		}
 		.navigationTitle("Details")
 		.onAppear {
-			do {
-				userInfo = try StaticJSONMapper.decode(file: "SingleUserData", type: UserDetailResponse.self)
-			} catch {
-				print(error)
-			}
+			viewModel.fetchDetails()
 		}
     }
 }
 
 struct DetailView_Previews: PreviewProvider {
+
+	private static var previewUserId: Int {
+		let users = try! StaticJSONMapper.decode(file: "UsersStaticData", type: UsersResponse.self)
+		return users.data.first!.id
+	}
+
     static var previews: some View {
 		NavigationView {
-			DetailView()
+			DetailView(viewModel: .init(userId: previewUserId))
 		}
     }
 }
@@ -52,7 +54,7 @@ private extension DetailView {
 
 	@ViewBuilder
 	var avatar: some View {
-		if let avatarAbsoluteString = userInfo?.data.avatar,
+		if let avatarAbsoluteString = viewModel.userDetails?.data.avatar,
 		   let avatarUrl = URL(string: avatarAbsoluteString) {
 
 			AsyncImage(url: avatarUrl) { image in
@@ -70,9 +72,9 @@ private extension DetailView {
 
 	@ViewBuilder
 	var link: some View {
-		if let supportAbsoluteString = userInfo?.support.url,
+		if let supportAbsoluteString = viewModel.userDetails?.support.url,
 		   let supportUrl = URL(string: supportAbsoluteString),
-		   let supportText = userInfo?.support.text {
+		   let supportText = viewModel.userDetails?.support.text {
 
 			Link(destination: supportUrl) {
 				VStack(alignment: .leading, spacing: 8) {
@@ -96,10 +98,10 @@ private extension DetailView {
 
 	var general: some View {
 		VStack(alignment: .leading, spacing: 8) {
-			PillView(id: userInfo?.data.id ?? 0)
-			detailRow(title: userInfo?.data.firstName ?? "-", subtitle: "<First Name Here>")
-			detailRow(title: userInfo?.data.lastName ?? "-", subtitle: "<Last Name Here>")
-			detailRow(title: userInfo?.data.email ?? "-", subtitle: "<Email Here>", withDivider: false)
+			PillView(id: viewModel.userDetails?.data.id ?? 0)
+			detailRow(title: "First Name", subtitle: viewModel.userDetails?.data.firstName ?? "-")
+			detailRow(title: "Last Name", subtitle: viewModel.userDetails?.data.lastName ?? "-")
+			detailRow(title: "Email", subtitle: viewModel.userDetails?.data.email ?? "-", withDivider: false)
 		}
 	}
 

@@ -25,6 +25,7 @@
 		9596979B2A4425DC00B23EB3 /* CreateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9596979A2A4425DC00B23EB3 /* CreateView.swift */; };
 		9596979E2A442BD600B23EB3 /* NetworkingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9596979D2A442BD600B23EB3 /* NetworkingManager.swift */; };
 		959697A02A44323C00B23EB3 /* PeopleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9596979F2A44323C00B23EB3 /* PeopleViewModel.swift */; };
+		959697A22A4436AA00B23EB3 /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 959697A12A4436AA00B23EB3 /* DetailViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +49,7 @@
 		9596979A2A4425DC00B23EB3 /* CreateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateView.swift; sourceTree = "<group>"; };
 		9596979D2A442BD600B23EB3 /* NetworkingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingManager.swift; sourceTree = "<group>"; };
 		9596979F2A44323C00B23EB3 /* PeopleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleViewModel.swift; sourceTree = "<group>"; };
+		959697A12A4436AA00B23EB3 /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -226,6 +228,7 @@
 		95874A652A43688D00135B2D /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				959697A12A4436AA00B23EB3 /* DetailViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -364,6 +367,7 @@
 				95874A7A2A43A93B00135B2D /* PersonItemView.swift in Sources */,
 				959697A02A44323C00B23EB3 /* PeopleViewModel.swift in Sources */,
 				9596979B2A4425DC00B23EB3 /* CreateView.swift in Sources */,
+				959697A22A4436AA00B23EB3 /* DetailViewModel.swift in Sources */,
 				95874A732A43848600135B2D /* Models.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

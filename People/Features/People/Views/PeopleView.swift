@@ -6,15 +6,13 @@ struct PeopleView: View {
 	private let columns = Array(repeating: GridItem(.flexible()), count: 2)
 
     var body: some View {
-		NavigationView {
+		NavigationStack {
 			ZStack {
 				background
 				ScrollView {
 					LazyVGrid(columns: columns, spacing: 16) {
 						ForEach(viewModel.users, id: \.id) { user in
-							NavigationLink {
-								DetailView()
-							} label: {
+							NavigationLink(value: user.id) {
 								PersonItemView(user: user)
 							}
 						}
@@ -22,6 +20,9 @@ struct PeopleView: View {
 					.padding()
 				}
 			}
+			.navigationDestination(for: Int.self, destination: { userId in
+				DetailView(viewModel: .init(userId: userId))
+			})
 			.navigationTitle("People")
 			.toolbar {
 				ToolbarItem(placement: .primaryAction) {

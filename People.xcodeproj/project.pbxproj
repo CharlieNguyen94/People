@@ -23,6 +23,7 @@
 		95874A7D2A43AA1C00135B2D /* PillView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95874A7C2A43AA1C00135B2D /* PillView.swift */; };
 		95874A7F2A43AE9300135B2D /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95874A7E2A43AE9200135B2D /* DetailView.swift */; };
 		9596979B2A4425DC00B23EB3 /* CreateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9596979A2A4425DC00B23EB3 /* CreateView.swift */; };
+		9596979E2A442BD600B23EB3 /* NetworkingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9596979D2A442BD600B23EB3 /* NetworkingManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		95874A7C2A43AA1C00135B2D /* PillView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PillView.swift; sourceTree = "<group>"; };
 		95874A7E2A43AE9200135B2D /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		9596979A2A4425DC00B23EB3 /* CreateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateView.swift; sourceTree = "<group>"; };
+		9596979D2A442BD600B23EB3 /* NetworkingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +110,7 @@
 		95874A582A43681100135B2D /* Base */ = {
 			isa = PBXGroup;
 			children = (
+				9596979C2A442BC900B23EB3 /* API */,
 				95874A7B2A43AA0000135B2D /* Views */,
 				95874A742A4384B300135B2D /* Mapper */,
 				95874A712A43846D00135B2D /* Model */,
@@ -265,6 +268,14 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		9596979C2A442BC900B23EB3 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				9596979D2A442BD600B23EB3 /* NetworkingManager.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -345,6 +356,7 @@
 				95874A7F2A43AE9300135B2D /* DetailView.swift in Sources */,
 				95874A6E2A43839A00135B2D /* UserDetailResponse.swift in Sources */,
 				95874A462A43632E00135B2D /* PeopleApp.swift in Sources */,
+				9596979E2A442BD600B23EB3 /* NetworkingManager.swift in Sources */,
 				95874A702A43840700135B2D /* UserResponse.swift in Sources */,
 				95874A7A2A43A93B00135B2D /* PersonItemView.swift in Sources */,
 				9596979B2A4425DC00B23EB3 /* CreateView.swift in Sources */,

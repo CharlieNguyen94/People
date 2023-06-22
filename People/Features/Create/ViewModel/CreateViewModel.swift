@@ -31,9 +31,7 @@ final class CreateViewModel: ObservableObject {
 
 			NetworkingManager
 				.shared
-				.request(
-					methodType: .POST(data: data),
-					"https://reqres.in/api/users") { [weak self] result in
+				.request(.create(submissionData: data)) { [weak self] result in
 						guard let self else { return }
 
 						DispatchQueue.main.async {

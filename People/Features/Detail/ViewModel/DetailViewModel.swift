@@ -15,7 +15,7 @@ final class DetailViewModel: ObservableObject {
 	func fetchDetails() {
 		isLoading = true
 		NetworkingManager.shared.request(
-			"https://reqres.in/api/users/\(userId)",
+			.detail(id: userId),
 			type: UserDetailResponse.self
 		) { [weak self] result in
 			guard let self else { return }

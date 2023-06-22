@@ -33,6 +33,7 @@
 		959697DF2A44899600B23EB3 /* HapticsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 959697DE2A44899600B23EB3 /* HapticsManager.swift */; };
 		959697E22A448BB900B23EB3 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 959697E12A448BB800B23EB3 /* SettingsView.swift */; };
 		959697E62A448CC100B23EB3 /* UserDefaultsKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 959697E52A448CC100B23EB3 /* UserDefaultsKeys.swift */; };
+		959697E82A448DF700B23EB3 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 959697E72A448DF700B23EB3 /* Endpoint.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -64,6 +65,7 @@
 		959697DE2A44899600B23EB3 /* HapticsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticsManager.swift; sourceTree = "<group>"; };
 		959697E12A448BB800B23EB3 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		959697E52A448CC100B23EB3 /* UserDefaultsKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsKeys.swift; sourceTree = "<group>"; };
+		959697E72A448DF700B23EB3 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -299,6 +301,7 @@
 			isa = PBXGroup;
 			children = (
 				9596979D2A442BD600B23EB3 /* NetworkingManager.swift */,
+				959697E72A448DF700B23EB3 /* Endpoint.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -424,6 +427,7 @@
 				959697A42A443D8700B23EB3 /* NewPerson.swift in Sources */,
 				959697A02A44323C00B23EB3 /* PeopleViewModel.swift in Sources */,
 				959697E62A448CC100B23EB3 /* UserDefaultsKeys.swift in Sources */,
+				959697E82A448DF700B23EB3 /* Endpoint.swift in Sources */,
 				9596979B2A4425DC00B23EB3 /* CreateView.swift in Sources */,
 				959697DC2A44737F00B23EB3 /* CreateValidator.swift in Sources */,
 				959697A22A4436AA00B23EB3 /* DetailViewModel.swift in Sources */,

@@ -13,7 +13,7 @@ final class PeopleViewModel: ObservableObject {
 	func fetchUsers() {
 		isLoading = true
 		NetworkingManager.shared.request(
-			"https://reqres.in/api/users",
+			.people,
 			type: UsersResponse.self
 		) { [weak self] result in
 			guard let self else { return }

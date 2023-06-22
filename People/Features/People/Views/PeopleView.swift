@@ -22,6 +22,11 @@ struct PeopleView: View {
 						}
 						.padding()
 					}
+					.refreshable {
+						Task {
+							await viewModel.fetchUsers()
+						}
+					}
 				}
 			}
 			.navigationDestination(for: Int.self, destination: { userId in
@@ -33,8 +38,11 @@ struct PeopleView: View {
 					create
 				}
 			}
-			.onAppear {
-				viewModel.fetchUsers()
+			.task {
+				if !viewModel.hasAppeared {
+					await viewModel.fetchUsers()
+					viewModel.hasAppeared = true
+				}
 			}
 			.sheet(isPresented: $viewModel.showCreate) {
 				CreateView(viewModel: .init(successfulAction: {
@@ -62,7 +70,9 @@ struct PeopleView: View {
 				error: viewModel.error
 			) {
 				Button("Retry") {
-					viewModel.fetchUsers()
+					Task {
+						await viewModel.fetchUsers()
+					}
 				}
 			}
 		}

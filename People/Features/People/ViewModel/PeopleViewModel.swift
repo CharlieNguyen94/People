@@ -8,25 +8,22 @@ final class PeopleViewModel: ObservableObject {
 	@Published var hasError = false
 	@Published var showCreate = false
 	@Published var shouldShowSuccess = false
+	@Published var hasAppeared = false
 
-
-	func fetchUsers() {
+	@MainActor
+	func fetchUsers() async {
 		isLoading = true
-		NetworkingManager.shared.request(
-			.people,
-			type: UsersResponse.self
-		) { [weak self] result in
-			guard let self else { return }
+		defer { isLoading = false }
 
-			DispatchQueue.main.async {
-				defer { self.isLoading = false }
-				switch result {
-				case .success(let response):
-					self.users = response.data
-				case .failure(let error):
-					self.hasError = true
-					self.error = error as? NetworkingManager.NetworkingError
-				}
+		do {
+			let response = try await NetworkingManager.shared.request(.people, type: UsersResponse.self)
+			self.users = response.data
+		} catch {
+			self.hasError = true
+			if let networkingError = error as? NetworkingManager.NetworkingError {
+				self.error = networkingError
+			} else {
+				self.error = .custom(error: error)
 			}
 		}
 	}

@@ -81,7 +81,9 @@ private extension CreateView {
 	var submit: some View {
 		Button("Submit") {
 			focusedField = nil
-			viewModel.create()
+			Task {
+				await viewModel.create()
+			}
 		}
 	}
 

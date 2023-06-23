@@ -80,12 +80,6 @@ class CreateFormValidatorTests: XCTestCase {
 	func testWithValidPersonErrorNotThrown() {
 		let person = NewPerson(firstName: "Tommy", lastName: "Nguyen", job: "Personal Trainer")
 		XCTAssertNoThrow(try validator.validate(person), "Error for valid person should not be thrown")
-
-		do {
-			_ = try validator.validate(person)
-		} catch {
-			XCTFail("No error should be thrown, since the person is a valid object")
-		}
 	}
 }
 

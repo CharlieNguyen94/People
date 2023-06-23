@@ -9,14 +9,11 @@ struct CreateView: View {
 		NavigationView {
 			Form {
 				Section {
-					textfield("First name", text: $viewModel.person.firstName)
-						.focused($focusedField, equals: .firstName)
+					textfield("First name", text: $viewModel.person.firstName, equals: .firstName)
 
-					textfield("Last name", text: $viewModel.person.lastName)
-						.focused($focusedField, equals: .lastName)
+					textfield("Last name", text: $viewModel.person.lastName, equals: .lastName)
 
-					textfield("Job", text: $viewModel.person.job)
-						.focused($focusedField, equals: .job)
+					textfield("Job", text: $viewModel.person.job, equals: .job)
 				} footer: {
 					if case .validation(let error) = viewModel.error,
 					   let errorDescription = error.errorDescription {
@@ -87,7 +84,8 @@ private extension CreateView {
 		}
 	}
 
-	func textfield(_ placeholder: String, text: Binding<String>) -> some View {
+	func textfield(_ placeholder: String, text: Binding<String>, equals: Field) -> some View {
 		TextField(placeholder, text: text)
+			.focused($focusedField, equals: equals)
 	}
 }

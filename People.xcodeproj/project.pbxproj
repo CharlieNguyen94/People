@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		955C6C6C2A44C04500432260 /* JSONMapperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 955C6C6B2A44C04500432260 /* JSONMapperTests.swift */; };
+		955C6C702A44FEE700432260 /* CreateFormValidatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 955C6C6F2A44FEE700432260 /* CreateFormValidatorTests.swift */; };
 		95874A462A43632E00135B2D /* PeopleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95874A452A43632E00135B2D /* PeopleApp.swift */; };
 		95874A4A2A43633100135B2D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 95874A492A43633100135B2D /* Assets.xcassets */; };
 		95874A4D2A43633100135B2D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 95874A4C2A43633100135B2D /* Preview Assets.xcassets */; };
@@ -52,6 +53,7 @@
 		955C6C672A44BF7D00432260 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		955C6C6B2A44C04500432260 /* JSONMapperTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONMapperTests.swift; sourceTree = "<group>"; };
 		955C6C6D2A44FAA700432260 /* People.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = People.xctestplan; sourceTree = "<group>"; };
+		955C6C6F2A44FEE700432260 /* CreateFormValidatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateFormValidatorTests.swift; sourceTree = "<group>"; };
 		95874A422A43632E00135B2D /* People.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = People.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		95874A452A43632E00135B2D /* PeopleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleApp.swift; sourceTree = "<group>"; };
 		95874A492A43633100135B2D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -103,6 +105,7 @@
 		955C6C5F2A44BEC000432260 /* PeopleTests */ = {
 			isa = PBXGroup;
 			children = (
+				955C6C6E2A44FEB800432260 /* Form */,
 				955C6C6A2A44C03600432260 /* Mapper */,
 			);
 			path = PeopleTests;
@@ -114,6 +117,14 @@
 				955C6C6B2A44C04500432260 /* JSONMapperTests.swift */,
 			);
 			path = Mapper;
+			sourceTree = "<group>";
+		};
+		955C6C6E2A44FEB800432260 /* Form */ = {
+			isa = PBXGroup;
+			children = (
+				955C6C6F2A44FEE700432260 /* CreateFormValidatorTests.swift */,
+			);
+			path = Form;
 			sourceTree = "<group>";
 		};
 		95874A392A43632E00135B2D = {
@@ -480,6 +491,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				955C6C702A44FEE700432260 /* CreateFormValidatorTests.swift in Sources */,
 				955C6C6C2A44C04500432260 /* JSONMapperTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

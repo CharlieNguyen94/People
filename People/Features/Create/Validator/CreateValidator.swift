@@ -1,6 +1,10 @@
 import Foundation
 
-struct CreateValidator {
+protocol CreateValidatorProvider {
+	func validate(_ person: NewPerson) throws
+}
+
+struct CreateValidator: CreateValidatorProvider {
 
 	func validate(_ person: NewPerson) throws {
 

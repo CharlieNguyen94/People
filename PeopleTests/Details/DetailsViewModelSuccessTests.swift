@@ -8,7 +8,7 @@ final class DetailsViewModelSuccessTests: XCTestCase {
 
 	override func setUp() {
 		networkingMock = NetworkingManagerUserDetailsResponseSuccessMock()
-		viewModel = DetailViewModel(userId: 1, networkingManager: networkingMock)
+		viewModel = DetailViewModel(networkingManager: networkingMock)
 	}
 
 	override func tearDown() {
@@ -24,7 +24,7 @@ final class DetailsViewModelSuccessTests: XCTestCase {
 			XCTAssertFalse(viewModel.isLoading, "The view model should not be loading")
 		}
 
-		await viewModel.fetchDetails()
+		await viewModel.fetchDetails(userId: 1)
 
 		XCTAssertNotNil(viewModel.userDetails, "The user info in the view model should not be nil")
 

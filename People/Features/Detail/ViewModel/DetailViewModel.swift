@@ -7,16 +7,14 @@ final class DetailViewModel: ObservableObject {
 	@Published private(set) var isLoading = false
 	@Published var hasError = false
 
-	private let userId: Int
 	private let networkingManager: NetworkingManagerProvider
 
-	init(userId: Int, networkingManager: NetworkingManagerProvider = NetworkingManager.shared) {
-		self.userId = userId
+	init(networkingManager: NetworkingManagerProvider = NetworkingManager.shared) {
 		self.networkingManager = networkingManager
 	}
 
 	@MainActor
-	func fetchDetails() async {
+	func fetchDetails(userId: Int) async {
 		isLoading = true
 		defer { isLoading = false }
 

@@ -3,6 +3,25 @@ import SwiftUI
 struct DetailView: View {
 
 	@StateObject var viewModel: DetailViewModel
+	let userId: Int
+
+	init(userId: Int) {
+		self.userId = userId
+		#if DEBUG
+		if UITestingHelper.isUITesting {
+
+			let mock: NetworkingManagerProvider = UITestingHelper.isDetailsNetworkingSuccessful ?
+			NetworkingManagerUserDetailsResponseSuccessMock() : NetworkingManagerUserDetailsResponseFailureMock()
+			_viewModel = StateObject(wrappedValue: DetailViewModel(networkingManager: mock))
+
+		} else {
+			_viewModel = StateObject(wrappedValue: DetailViewModel())
+		}
+
+		#else
+		_viewModel = StateObject(wrappedValue: DetailViewModel())
+		#endif
+	}
 
     var body: some View {
 		ZStack {
@@ -30,7 +49,7 @@ struct DetailView: View {
 		}
 		.navigationTitle("Details")
 		.task {
-			 await viewModel.fetchDetails()
+			await viewModel.fetchDetails(userId: userId)
 		}
 		.alert(
 			isPresented: $viewModel.hasError,
@@ -48,7 +67,7 @@ struct DetailView_Previews: PreviewProvider {
 
     static var previews: some View {
 		NavigationView {
-			DetailView(viewModel: .init(userId: previewUserId))
+			DetailView(userId: previewUserId)
 		}
     }
 }

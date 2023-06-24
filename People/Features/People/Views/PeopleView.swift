@@ -11,7 +11,7 @@ struct PeopleView: View {
 
 		if UITestingHelper.isUITesting {
 
-			let mock: NetworkingManagerProvider = UITestingHelper.isNetworkingSuccessful ? NetworkingManagerUserResponseSuccessMock() : NetworkingManagerUserDetailsResponseFailureMock()
+			let mock: NetworkingManagerProvider = UITestingHelper.isPeopleNetworkingSuccessful ? NetworkingManagerUserResponseSuccessMock() : NetworkingManagerUserDetailsResponseFailureMock()
 			_viewModel = StateObject(wrappedValue: PeopleViewModel(networkingManager: mock))
 
 		} else {
@@ -60,7 +60,7 @@ struct PeopleView: View {
 				}
 			}
 			.navigationDestination(for: Int.self, destination: { userId in
-				DetailView(viewModel: .init(userId: userId))
+				DetailView(userId: userId)
 			})
 			.navigationTitle("People")
 			.toolbar {

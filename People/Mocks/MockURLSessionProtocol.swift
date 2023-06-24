@@ -1,3 +1,4 @@
+#if DEBUG
 import Foundation
 import XCTest
 
@@ -29,3 +30,4 @@ class MockURLSessionProtocol: URLProtocol {
 
 	override func stopLoading() {}
 }
+#endif

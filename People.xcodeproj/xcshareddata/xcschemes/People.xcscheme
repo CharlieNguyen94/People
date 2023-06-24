@@ -29,7 +29,7 @@
       shouldUseLaunchSchemeArgsEnv = "YES">
       <TestPlans>
          <TestPlanReference
-            reference = "container:People.xctestplan"
+            reference = "container:People/People.xctestplan"
             default = "YES">
          </TestPlanReference>
       </TestPlans>
@@ -42,6 +42,17 @@
                BlueprintIdentifier = "955C6C5D2A44BEC000432260"
                BuildableName = "PeopleTests.xctest"
                BlueprintName = "PeopleTests"
+               ReferencedContainer = "container:People.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO"
+            parallelizable = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "95E25F252A46EDF200D72EF6"
+               BuildableName = "PeopleUITests.xctest"
+               BlueprintName = "PeopleUITests"
                ReferencedContainer = "container:People.xcodeproj">
             </BuildableReference>
          </TestableReference>

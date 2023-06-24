@@ -23,6 +23,13 @@
         "identifier" : "955C6C5D2A44BEC000432260",
         "name" : "PeopleTests"
       }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:People.xcodeproj",
+        "identifier" : "95E25F252A46EDF200D72EF6",
+        "name" : "PeopleUITests"
+      }
     }
   ],
   "version" : 1

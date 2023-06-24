@@ -2,8 +2,26 @@ import SwiftUI
 
 struct PeopleView: View {
 
-	@StateObject private var viewModel = PeopleViewModel()
+	@StateObject private var viewModel: PeopleViewModel
 	private let columns = Array(repeating: GridItem(.flexible()), count: 2)
+
+	init() {
+
+		#if DEBUG
+
+		if UITestingHelper.isUITesting {
+
+			let mock: NetworkingManagerProvider = UITestingHelper.isNetworkingSuccessful ? NetworkingManagerUserResponseSuccessMock() : NetworkingManagerUserDetailsResponseFailureMock()
+			_viewModel = StateObject(wrappedValue: PeopleViewModel(networkingManager: mock))
+
+		} else {
+			_viewModel = StateObject(wrappedValue: PeopleViewModel())
+		}
+		#else
+		_viewModel = StateObject(wrappedValue: PeopleViewModel())
+		#endif
+
+	}
 
     var body: some View {
 		NavigationStack {
@@ -17,6 +35,7 @@ struct PeopleView: View {
 							ForEach(viewModel.users, id: \.id) { user in
 								NavigationLink(value: user.id) {
 									PersonItemView(user: user)
+										.accessibilityIdentifier("item_\(user.id)")
 										.task {
 											if viewModel.hasReachedEnd(of: user) && !viewModel.isFetching {
 												await viewModel.fetchNextSetOfUsers()
@@ -26,6 +45,7 @@ struct PeopleView: View {
 							}
 						}
 						.padding()
+						.accessibilityIdentifier("peopleGrid")
 					}
 					.refreshable {
 						Task {

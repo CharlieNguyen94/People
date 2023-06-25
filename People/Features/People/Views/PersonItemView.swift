@@ -1,4 +1,5 @@
 import SwiftUI
+import Kingfisher
 
 struct PersonItemView: View {
 
@@ -6,16 +7,12 @@ struct PersonItemView: View {
 
 	var body: some View {
 		VStack(spacing: .zero) {
-			AsyncImage(url: URL(string: user.avatar)) { image in
-				image
-					.resizable()
-					.aspectRatio(contentMode: .fill)
-					.frame(height: 130)
-					.clipped()
-			} placeholder: {
-				ProgressView()
-			}
-
+			KFImage(URL(string: user.avatar))
+				.resizable()
+				.placeholder { ProgressView() }
+				.aspectRatio(contentMode: .fill)
+				.frame(height: 130)
+				.clipped()
 
 			VStack(alignment: .leading) {
 				PillView(id: user.id)

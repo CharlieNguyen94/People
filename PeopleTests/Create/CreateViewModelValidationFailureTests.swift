@@ -10,7 +10,7 @@ final class CreateViewModelValidationFailureTests: XCTestCase {
 	override func setUp() {
 		networkingMock = NetworkingManagerCreateSuccessMock()
 		validationMock = CreateValidatorFailureMock()
-		viewModel = CreateViewModel(networkingManager: networkingMock, validator: validationMock) {}
+		viewModel = CreateViewModel(networkingManager: networkingMock, validator: validationMock)
 	}
 
 	override func tearDown() {

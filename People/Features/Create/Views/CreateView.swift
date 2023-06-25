@@ -5,15 +5,40 @@ struct CreateView: View {
 	@StateObject var viewModel: CreateViewModel
 	@FocusState private var focusedField: Field?
 
+	private let successfulAction: () -> Void
+
+	init(successfulAction: @escaping () -> Void) {
+		self.successfulAction = successfulAction
+
+		#if DEBUG
+
+		if UITestingHelper.isUITesting {
+			let mock: NetworkingManagerProvider = UITestingHelper.isCreateNetworkingSuccessful ?
+			NetworkingManagerCreateSuccessMock() : NetworkingManagerCreateFailureMock()
+			_viewModel = StateObject(wrappedValue: CreateViewModel(networkingManager: mock))
+		} else {
+			_viewModel = StateObject(wrappedValue: CreateViewModel())
+		}
+
+		#else
+		_viewModel = StateObject(wrappedValue: CreateViewModel(successfulAction: {}))
+		#endif
+	}
+
     var body: some View {
 		NavigationView {
 			Form {
 				Section {
+
 					textfield("First name", text: $viewModel.person.firstName, equals: .firstName)
+						.accessibilityIdentifier("firstNameTextField")
 
 					textfield("Last name", text: $viewModel.person.lastName, equals: .lastName)
+						.accessibilityIdentifier("lastNameTextField")
 
 					textfield("Job", text: $viewModel.person.job, equals: .job)
+						.accessibilityIdentifier("jobTextField")
+
 				} footer: {
 					if case .validation(let error) = viewModel.error,
 					   let errorDescription = error.errorDescription {
@@ -41,7 +66,7 @@ struct CreateView: View {
 			.onChange(of: viewModel.state) { formState in
 				if formState == .successful {
 					dismiss()
-					viewModel.successfulAction()
+					successfulAction()
 				}
 			}
 			.alert(
@@ -62,7 +87,7 @@ extension CreateView {
 
 struct CreateView_Previews: PreviewProvider {
     static var previews: some View {
-		CreateView(viewModel: .init(successfulAction: {}))
+		CreateView(successfulAction: {})
     }
 }
 
@@ -73,6 +98,7 @@ private extension CreateView {
 			dismiss()
 		}
 		.disabled(viewModel.shouldDisable)
+		.accessibilityIdentifier("doneButton")
 	}
 
 	var submit: some View {
@@ -82,6 +108,7 @@ private extension CreateView {
 				await viewModel.create()
 			}
 		}
+		.accessibilityIdentifier("submitButton")
 	}
 
 	func textfield(_ placeholder: String, text: Binding<String>, equals: Field) -> some View {

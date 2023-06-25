@@ -10,6 +10,10 @@
 		951631492A478E8900F007B0 /* PeopleFailureUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951631482A478E8900F007B0 /* PeopleFailureUITests.swift */; };
 		9516314C2A4790C000F007B0 /* DetailsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9516314B2A4790C000F007B0 /* DetailsUITests.swift */; };
 		9516314E2A47A1D500F007B0 /* DetailsFailureUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9516314D2A47A1D500F007B0 /* DetailsFailureUITests.swift */; };
+		951631512A47A50E00F007B0 /* CreateScreenUIValidTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951631502A47A50E00F007B0 /* CreateScreenUIValidTests.swift */; };
+		951631532A47A81000F007B0 /* CreateScreenFormValidationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951631522A47A81000F007B0 /* CreateScreenFormValidationTests.swift */; };
+		951631552A48209100F007B0 /* CreateFailureUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951631542A48209100F007B0 /* CreateFailureUITests.swift */; };
+		951631572A4824C100F007B0 /* CreateScreenUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951631562A4824C100F007B0 /* CreateScreenUITests.swift */; };
 		9559BC1E2A46D64E00E77B05 /* CreateViewModelSuccessTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9559BC1D2A46D64E00E77B05 /* CreateViewModelSuccessTests.swift */; };
 		9559BC222A46D84200E77B05 /* CreateViewModelValidationFailureTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9559BC212A46D84200E77B05 /* CreateViewModelValidationFailureTests.swift */; };
 		9559BC262A46DAD500E77B05 /* CreateViewModelFailureTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9559BC252A46DAD500E77B05 /* CreateViewModelFailureTests.swift */; };
@@ -82,6 +86,10 @@
 		951631482A478E8900F007B0 /* PeopleFailureUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleFailureUITests.swift; sourceTree = "<group>"; };
 		9516314B2A4790C000F007B0 /* DetailsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsUITests.swift; sourceTree = "<group>"; };
 		9516314D2A47A1D500F007B0 /* DetailsFailureUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsFailureUITests.swift; sourceTree = "<group>"; };
+		951631502A47A50E00F007B0 /* CreateScreenUIValidTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateScreenUIValidTests.swift; sourceTree = "<group>"; };
+		951631522A47A81000F007B0 /* CreateScreenFormValidationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateScreenFormValidationTests.swift; sourceTree = "<group>"; };
+		951631542A48209100F007B0 /* CreateFailureUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateFailureUITests.swift; sourceTree = "<group>"; };
+		951631562A4824C100F007B0 /* CreateScreenUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateScreenUITests.swift; sourceTree = "<group>"; };
 		9559BC172A46D5BB00E77B05 /* NetworkingManagerCreateSuccessMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingManagerCreateSuccessMock.swift; sourceTree = "<group>"; };
 		9559BC1B2A46D60B00E77B05 /* CreateValidatorSuccessMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateValidatorSuccessMock.swift; sourceTree = "<group>"; };
 		9559BC1D2A46D64E00E77B05 /* CreateViewModelSuccessTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateViewModelSuccessTests.swift; sourceTree = "<group>"; };
@@ -170,6 +178,17 @@
 				9516314D2A47A1D500F007B0 /* DetailsFailureUITests.swift */,
 			);
 			path = Details;
+			sourceTree = "<group>";
+		};
+		9516314F2A47A4EC00F007B0 /* Create */ = {
+			isa = PBXGroup;
+			children = (
+				951631502A47A50E00F007B0 /* CreateScreenUIValidTests.swift */,
+				951631522A47A81000F007B0 /* CreateScreenFormValidationTests.swift */,
+				951631542A48209100F007B0 /* CreateFailureUITests.swift */,
+				951631562A4824C100F007B0 /* CreateScreenUITests.swift */,
+			);
+			path = Create;
 			sourceTree = "<group>";
 		};
 		9559BC162A46D5A000E77B05 /* CreateNetworkingManager */ = {
@@ -307,12 +326,12 @@
 			children = (
 				95E25F372A475F9700D72EF6 /* Mocks */,
 				95E25F342A475C1300D72EF6 /* UITesting */,
-				955C6C672A44BF7D00432260 /* Info.plist */,
 				95874A592A43681500135B2D /* Features */,
 				95874A582A43681100135B2D /* Base */,
 				95874A532A43646900135B2D /* Resources */,
 				95874A452A43632E00135B2D /* PeopleApp.swift */,
 				95874A492A43633100135B2D /* Assets.xcassets */,
+				955C6C672A44BF7D00432260 /* Info.plist */,
 				95874A4B2A43633100135B2D /* Preview Content */,
 				955C6C6D2A44FAA700432260 /* People.xctestplan */,
 			);
@@ -551,6 +570,7 @@
 		95E25F272A46EDF300D72EF6 /* PeopleUITests */ = {
 			isa = PBXGroup;
 			children = (
+				9516314F2A47A4EC00F007B0 /* Create */,
 				9516314A2A4790B100F007B0 /* Details */,
 				95E25F312A475A8600D72EF6 /* People */,
 			);
@@ -786,9 +806,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				951631512A47A50E00F007B0 /* CreateScreenUIValidTests.swift in Sources */,
+				951631572A4824C100F007B0 /* CreateScreenUITests.swift in Sources */,
 				95E25F332A475AA000D72EF6 /* PeopleScreenUITests.swift in Sources */,
+				951631532A47A81000F007B0 /* CreateScreenFormValidationTests.swift in Sources */,
 				9516314E2A47A1D500F007B0 /* DetailsFailureUITests.swift in Sources */,
 				9516314C2A4790C000F007B0 /* DetailsUITests.swift in Sources */,
+				951631552A48209100F007B0 /* CreateFailureUITests.swift in Sources */,
 				951631492A478E8900F007B0 /* PeopleFailureUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -75,12 +75,12 @@ struct PeopleView: View {
 				}
 			}
 			.sheet(isPresented: $viewModel.showCreate) {
-				CreateView(viewModel: .init(successfulAction: {
+				CreateView(successfulAction: {
 					haptic(.success)
 					withAnimation(.spring().delay(0.25)) {
 						viewModel.shouldShowSuccess.toggle()
 					}
-				}))
+				})
 			}
 			.overlay {
 				if viewModel.shouldShowSuccess {
@@ -132,5 +132,6 @@ private extension PeopleView {
 				.bold()
 		}
 		.disabled(viewModel.isLoading)
+		.accessibilityIdentifier("createButton")
 	}
 }

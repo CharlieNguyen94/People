@@ -10,16 +10,12 @@ final class CreateViewModel: ObservableObject {
 	private let networkingManager: NetworkingManagerProvider
 	private let validator: CreateValidatorProvider
 
-	let successfulAction: () -> Void
-
 	init(
 		networkingManager: NetworkingManagerProvider = NetworkingManager.shared,
-		validator: CreateValidatorProvider = CreateValidator(),
-		successfulAction: @escaping () -> Void
+		validator: CreateValidatorProvider = CreateValidator()
 	) {
 		self.networkingManager = networkingManager
 		self.validator = validator
-		self.successfulAction = successfulAction
 	}
 
 	var shouldDisable: Bool {

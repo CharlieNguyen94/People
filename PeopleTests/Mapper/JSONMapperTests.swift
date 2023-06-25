@@ -74,7 +74,7 @@ class JSONMapperTests: XCTestCase {
 		}
 	}
 
-	func testWithMInvalidFileErrorThrown() {
+	func testWithInvalidFileErrorThrown() {
 		XCTAssertThrowsError(try StaticJSONMapper.decode(file: "invalid", type: UsersResponse.self), "An error should be thrown")
 		do {
 			_ = try StaticJSONMapper.decode(file: "", type: UsersResponse.self)

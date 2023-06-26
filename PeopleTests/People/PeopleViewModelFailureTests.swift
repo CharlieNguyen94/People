@@ -26,7 +26,7 @@ class PeopleViewModelFailureTests: XCTest {
 
 		await viewModel.fetchUsers()
 
-		XCTAssertTrue(viewModel.hasError, "The viewmodel should have an error")
+		XCTAssertTrue(viewModel.hasError, "The view model should have an error")
 		XCTAssertNotNil(viewModel.error, "The view model error should be set")
 	}
 }

@@ -16,7 +16,7 @@ final class DetailsViewModelFailureTests: XCTestCase {
 		viewModel = nil
 	}
 
-	func testWithUnsuccessfulResponseErrorIsHandlede() async {
+	func testWithUnsuccessfulResponseErrorIsHandled() async {
 
 		XCTAssertFalse(viewModel.isLoading, "The view model should not be loading")
 

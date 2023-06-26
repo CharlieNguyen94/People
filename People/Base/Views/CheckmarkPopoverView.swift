@@ -4,8 +4,7 @@ struct CheckmarkPopoverView: View {
     var body: some View {
         Symbols
 			.checkmark
-			.font(.system(.largeTitle, design: .rounded))
-			.bold()
+			.font(.system(.largeTitle, design: .rounded).bold())
 			.padding()
 			.background(
 				.thinMaterial,

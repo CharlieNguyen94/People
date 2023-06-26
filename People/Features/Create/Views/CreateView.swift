@@ -26,54 +26,53 @@ struct CreateView: View {
 	}
 
     var body: some View {
-		NavigationView {
-			Form {
-				Section {
+		Form {
+			Section {
 
-					textfield("First name", text: $viewModel.person.firstName, equals: .firstName)
-						.accessibilityIdentifier("firstNameTextField")
+				textfield("First name", text: $viewModel.person.firstName, equals: .firstName)
+					.accessibilityIdentifier("firstNameTextField")
 
-					textfield("Last name", text: $viewModel.person.lastName, equals: .lastName)
-						.accessibilityIdentifier("lastNameTextField")
+				textfield("Last name", text: $viewModel.person.lastName, equals: .lastName)
+					.accessibilityIdentifier("lastNameTextField")
 
-					textfield("Job", text: $viewModel.person.job, equals: .job)
-						.accessibilityIdentifier("jobTextField")
+				textfield("Job", text: $viewModel.person.job, equals: .job)
+					.accessibilityIdentifier("jobTextField")
 
-				} footer: {
-					if case .validation(let error) = viewModel.error,
-					   let errorDescription = error.errorDescription {
-						Text(errorDescription)
-							.foregroundStyle(.red)
-					}
-				}
-
-				Section {
-					submit
+			} footer: {
+				if case .validation(let error) = viewModel.error,
+				   let errorDescription = error.errorDescription {
+					Text(errorDescription)
+						.foregroundStyle(.red)
 				}
 			}
-			.disabled(viewModel.shouldDisable)
-			.overlay {
-				if viewModel.state == .submitting {
-					ProgressView()
-				}
+
+			Section {
+				submit
 			}
-			.navigationTitle("Create")
-			.toolbar {
-				ToolbarItem(placement: .primaryAction) {
-					done
-				}
-			}
-			.onChange(of: viewModel.state) { formState in
-				if formState == .successful {
-					dismiss()
-					successfulAction()
-				}
-			}
-			.alert(
-				isPresented: $viewModel.hasError,
-				error: viewModel.error
-			) {}
 		}
+		.disabled(viewModel.shouldDisable)
+		.overlay {
+			if viewModel.state == .submitting {
+				ProgressView()
+			}
+		}
+		.navigationTitle("Create")
+		.toolbar {
+			ToolbarItem(placement: .primaryAction) {
+				done
+			}
+		}
+		.onChange(of: viewModel.state) { formState in
+			if formState == .successful {
+				dismiss()
+				successfulAction()
+			}
+		}
+		.alert(
+			isPresented: $viewModel.hasError,
+			error: viewModel.error
+		) {}
+			.embedInNavigation()
     }
 }
 

@@ -15,6 +15,7 @@
 		951631552A48209100F007B0 /* CreateFailureUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951631542A48209100F007B0 /* CreateFailureUITests.swift */; };
 		951631572A4824C100F007B0 /* CreateScreenUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951631562A4824C100F007B0 /* CreateScreenUITests.swift */; };
 		9516315A2A48282A00F007B0 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 951631592A48282A00F007B0 /* Kingfisher */; };
+		9516315D2A4845BD00F007B0 /* View+Navigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9516315C2A4845BD00F007B0 /* View+Navigation.swift */; };
 		9559BC1E2A46D64E00E77B05 /* CreateViewModelSuccessTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9559BC1D2A46D64E00E77B05 /* CreateViewModelSuccessTests.swift */; };
 		9559BC222A46D84200E77B05 /* CreateViewModelValidationFailureTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9559BC212A46D84200E77B05 /* CreateViewModelValidationFailureTests.swift */; };
 		9559BC262A46DAD500E77B05 /* CreateViewModelFailureTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9559BC252A46DAD500E77B05 /* CreateViewModelFailureTests.swift */; };
@@ -91,6 +92,7 @@
 		951631522A47A81000F007B0 /* CreateScreenFormValidationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateScreenFormValidationTests.swift; sourceTree = "<group>"; };
 		951631542A48209100F007B0 /* CreateFailureUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateFailureUITests.swift; sourceTree = "<group>"; };
 		951631562A4824C100F007B0 /* CreateScreenUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateScreenUITests.swift; sourceTree = "<group>"; };
+		9516315C2A4845BD00F007B0 /* View+Navigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Navigation.swift"; sourceTree = "<group>"; };
 		9559BC172A46D5BB00E77B05 /* NetworkingManagerCreateSuccessMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingManagerCreateSuccessMock.swift; sourceTree = "<group>"; };
 		9559BC1B2A46D60B00E77B05 /* CreateValidatorSuccessMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateValidatorSuccessMock.swift; sourceTree = "<group>"; };
 		9559BC1D2A46D64E00E77B05 /* CreateViewModelSuccessTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateViewModelSuccessTests.swift; sourceTree = "<group>"; };
@@ -191,6 +193,14 @@
 				951631562A4824C100F007B0 /* CreateScreenUITests.swift */,
 			);
 			path = Create;
+			sourceTree = "<group>";
+		};
+		9516315B2A48459500F007B0 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				9516315C2A4845BD00F007B0 /* View+Navigation.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		9559BC162A46D5A000E77B05 /* CreateNetworkingManager */ = {
@@ -331,10 +341,10 @@
 				95874A592A43681500135B2D /* Features */,
 				95874A582A43681100135B2D /* Base */,
 				95874A532A43646900135B2D /* Resources */,
+				95874A4B2A43633100135B2D /* Preview Content */,
 				95874A452A43632E00135B2D /* PeopleApp.swift */,
 				95874A492A43633100135B2D /* Assets.xcassets */,
 				955C6C672A44BF7D00432260 /* Info.plist */,
-				95874A4B2A43633100135B2D /* Preview Content */,
 				955C6C6D2A44FAA700432260 /* People.xctestplan */,
 			);
 			path = People;
@@ -361,6 +371,7 @@
 		95874A582A43681100135B2D /* Base */ = {
 			isa = PBXGroup;
 			children = (
+				9516315B2A48459500F007B0 /* Extensions */,
 				959697E42A448CAB00B23EB3 /* UserDefauls */,
 				959697DD2A44898500B23EB3 /* Haptics */,
 				9596979C2A442BC900B23EB3 /* API */,
@@ -807,6 +818,7 @@
 				959697A22A4436AA00B23EB3 /* DetailViewModel.swift in Sources */,
 				959697DF2A44899600B23EB3 /* HapticsManager.swift in Sources */,
 				95874A732A43848600135B2D /* Models.swift in Sources */,
+				9516315D2A4845BD00F007B0 /* View+Navigation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -927,7 +939,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -981,7 +993,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
